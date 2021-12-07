@@ -5,7 +5,12 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: red;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.navbar {
+  background-color: #e5e5e5ff;
 }
 
 .navbar-brand {
@@ -16,5 +21,9 @@ body {
 
 .brand {
   font-size: 4vw;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+  color: red;
 }
 /*# sourceMappingURL=style.css.map */
