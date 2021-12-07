@@ -1,1 +1,16 @@
 @import '_vars.scss';
+html{
+    height: 100%;
+}
+body{
+    font-family: $font;
+    background-color: red;
+}
+.navbar-brand{
+    padding-top: 0px;
+    font-size: 2px;
+    font-weight: 400;
+}
+.brand{
+    font-size: 4vw;
+}

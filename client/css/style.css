@@ -1,1 +1,20 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap");
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: red;
+}
+
+.navbar-brand {
+  padding-top: 0px;
+  font-size: 2px;
+  font-weight: 400;
+}
+
+.brand {
+  font-size: 4vw;
+}
+/*# sourceMappingURL=style.css.map */
