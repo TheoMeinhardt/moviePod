@@ -1,1 +1,25 @@
 @import '_vars.scss';
+
+html {
+  height: 100%;
+}
+body {
+  font-family: $font;
+  background-color: $white;
+  height: 100%;
+}
+.navbar {
+  background-color: $platinum;
+}
+.navbar-brand {
+  padding-top: 0px;
+  font-size: 2px;
+  font-weight: 400;
+}
+.brand {
+  font-size: 4vw;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+    color: red;
+}
