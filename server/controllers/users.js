@@ -1,5 +1,6 @@
 import Pool from 'pg-pool';
 import bcrypt from 'bcrypt';
+import log from 'loglevel';
 import { config as dotenvConfig } from 'dotenv';
 
 dotenvConfig();
@@ -24,16 +25,17 @@ async function addUser(req, res) {
     try {
       pool.query(text, params, (err, result) => {
         if (err) {
-          console.log(err);
           throw err;
         } else {
           res.status(200).send(result.rows);
         }
       });
     } catch (err) {
+      log.error(err);
       res.status(500).send(err);
     }
   } catch (err) {
+    log.error(err);
     res.status(400).send(err);
   }
 }
@@ -53,10 +55,11 @@ async function comparePassword(req, res) {
 
   const { rows } = await pool.query(text, params);
   const hashedPassword = rows[0].password;
+  log.error('test');
 
   bcrypt.compare(password, hashedPassword, (err, result) => {
     if (err) {
-      console.log(err);
+      log.error(err);
     } else {
       res.status(200).send(result);
     }
