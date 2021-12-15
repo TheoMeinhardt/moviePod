@@ -16,3 +16,11 @@ content-type: application/json
   "username": "QinX",
   "password": "apfel1234"
 }
+##########################################################
+POST http://localhost:3000/addMovieToList HTTP/1.1
+content-type: application/json
+
+{
+  "user": "QinX",
+  "movieTitle": "Wonder Woman"
+}

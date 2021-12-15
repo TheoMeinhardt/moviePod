@@ -66,4 +66,13 @@ async function comparePassword(req, res) {
   });
 }
 
-export { addUser, comparePassword };
+async function getUserId(username) {
+  const text = 'SELECT userid FROM siteuser where username = $1';
+  const params = [username];
+
+  const { rows } = await pool.query(text, params);
+
+  return rows.length >= 1 ? rows[0].userid : 'user not found';
+}
+
+export { addUser, comparePassword, getUserId };
