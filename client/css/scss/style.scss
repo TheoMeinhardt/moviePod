@@ -1,15 +1,16 @@
 @import '_vars.scss';
 
-html {
-  height: 100%;
-}
+
 body {
   font-family: $font;
   background-color: $white;
   height: 100%;
+
+// Navigation Bar
 }
 .navbar {
-  background-color: $platinum;
+  background-color: $orange-web;
+  border-bottom: 1px solid $oxford-blue;
 }
 .navbar-brand {
   padding-top: 0px;
@@ -19,7 +20,91 @@ body {
 .brand {
   font-size: 4vw;
 }
+/* Navbar active link color */
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .nav-link.active {
+  color: $oxford-blue;
+}
+/* change default bootstrap burger menu button color */
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: $orange-web;
+}
+// navbar link hover underline
+.nav-link:hover {
+  border-bottom: 1px solid $oxford-blue;
+}
+.site-navbar {
+  height: 20px;
+}
 
-.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
-    color: red;
+
+.hero-banner{
+  margin-top: -2rem;
+  display: block;
+  width: 100%;
+  height: 25rem;
+  background-color: $orange-web;}
+.hero-banner-heading-container{
+  justify-content: center;
+  margin-top: 2rem;
+  display: flex;
+  height: min-content;
+}
+// .hero-banner-heading{
+
+// }
+.card-group{
+  height: 50rem;
+  width: 40rem;
+  display: flex;
+  height: min-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+}
+.card{
+  background-color: $oxford-blue;
+  border-radius: 3rem;
+  color: white;
+  width: 10px;
+  height: 50rem;
+  margin-inline: 1rem;
+  display: inline-flex;
+  width: min-content;
+  height: min-content;
+}
+.center-card{
+  height: 150.933px;
+}
+// .card-body{
+
+// }
+
+
+// movie searchbox
+.movie-search-box{
+  background-color: $orange-web;
+  margin-top: 10%;
+  width: 440px;
+  padding: 20px;
+  border-radius: 2em;
+}
+.movie-search-input{
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: black 3;
+  width: 400px;
+}
+.movie-search-desc{
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+}
+.movie-search-desc-container{
+  width: 233.483px;
+}
+.movie-search-button{
+  width: 54.6px;
+  margin-right: 30px;
 }
