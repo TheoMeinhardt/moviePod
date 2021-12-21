@@ -5,6 +5,6 @@ import { addMovieToPersonalList } from '../controllers/moviesPOST.js';
 const router = Router();
 
 router.get('/getmovie/:t', getMovie);
-router.post('/addMovieToList', addMovieToPersonalList);
+router.post('/addmovietolist', addMovieToPersonalList);
 
 export { router };
