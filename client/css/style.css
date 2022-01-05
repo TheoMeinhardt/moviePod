@@ -176,4 +176,12 @@ body a:hover {
   height: -moz-min-content;
   height: min-content;
 }
+
+.acc-settings-bubble {
+  background-color: #fca311ff;
+  width: 80rem;
+  height: 40rem;
+  margin: auto;
+  border-radius: 3rem;
+}
 /*# sourceMappingURL=style.css.map */
