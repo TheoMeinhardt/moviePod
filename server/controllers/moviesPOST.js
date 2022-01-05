@@ -9,8 +9,8 @@ const pool = new Pool();
 
 async function addMovieToPersonalList(req, res) {
   try {
-    const { user, movieTitle } = req.body;
-    const userid = await getUserId(user);
+    const { username, movieTitle } = req.body;
+    const userid = await getUserId(username);
 
     if (isNaN(userid)) {
       throw new Error('user not found');
@@ -27,7 +27,7 @@ async function addMovieToPersonalList(req, res) {
 
     await pool.query(text, params);
 
-    res.status(200).send('OK');
+    res.status(200).send();
   } catch (err) {
     log.error(err);
     res.status(400).send(err);
