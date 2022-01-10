@@ -13,73 +13,81 @@
     <link rel="stylesheet" href=".\css\style.css">
     <title>moviePod</title>
   </head>
-  <body>  
-    <div class="header">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a href="#" class="navbar-brand">
-            <img src="http://placehold.it/">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
-            <span><i class="fas fa-bars"></i></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="toggleMobileMenu">
-            <ul class="nav navbar-nav">
-                <li>
-                  <a class="nav-link active" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="browse.html">Browse</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="mymovies.html">My Movies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="account.html">Account</a>
-                </li>
-            </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="hero-banner">
-      <div class = "hero-banner-heading-container">
-        <h1 class="hero-banner-heading mt-3">All your movies in one place</h1>
-      </div>
-      <div class="card-group card-links">    
-        <div class="card">
-          <a href="statistics.html">
-            <div class="card-body">
-              <h5 class="card-title">Statistics</h5>
-              <p class="card-text">Insights of you movie watching habits</p>
-            </div>
-          </a>         
-        </div>
-        <div class="card center-card">
-          <a href="reviews.html" class="">
-            <div class="card-body">
-              <h5 class="card-title">Rate Movies</h5>
-              <p class="card-text">Review and read others opinions</p>
-            </div>
+  <body>
+    <div id="app">
+      <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a href="#" class="navbar-brand">
+              <img src="http://placehold.it/">
           </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
+              <span><i class="fas fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="toggleMobileMenu">
+              <ul class="nav navbar-nav">
+                  <li>
+                    <a class="nav-link active" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="browse.html">Browse</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="mymovies.html">My Movies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="account.html">Account</a>
+                  </li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="hero-banner">
+        <div class = "hero-banner-heading-container">
+          <h1 class="hero-banner-heading mt-3">All your movies in one place</h1>
         </div>
-        <div class="card">
-          <a href="mymovies.html">
-            <div class="card-body">
-              <h5 class="card-title">Keep track</h5>
-              <p class="card-text">Keep a digital diary of the movies you watch</p>
-            </div>
-          </a>
+        <div class="card-group card-links">    
+          <div class="card">
+            <a href="statistics.html">
+              <div class="card-body">
+                <h5 class="card-title">Statistics</h5>
+                <p class="card-text">Insights of you movie watching habits</p>
+              </div>
+            </a>         
+          </div>
+          <div class="card center-card">
+            <a href="reviews.html" class="">
+              <div class="card-body">
+                <h5 class="card-title">Rate Movies</h5>
+                <p class="card-text">Review and read others opinions</p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="mymovies.html">
+              <div class="card-body">
+                <h5 class="card-title">Keep track</h5>
+                <p class="card-text">Keep a digital diary of the movies you watch</p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="movie-search-box mx-auto">
-      <div class="movie-search-desc-container mx-auto">
-        <p class="movie-search-desc my-0">Search for a movie</p>
+      <div class="movie-search-box mx-auto">
+        <div class="movie-search-desc-container mx-auto">
+          <p class="movie-search-desc my-0">Search for a movie</p>
+        </div>
+        <input v-model="movieSearch" class="movie-search-input" type="text" placeholder="  search...">
+        <div class="movie-search-button mt-3 mx-auto">
+          <button @click="searchMovie" id = "button_movie_search" class="btn btn-info">Go</button>     <!--Movie search button -->
+        </div>
       </div>
-      <input class="movie-search-input" type="text" placeholder="  search...">
-      <div class="movie-search-button mt-3 mx-auto">
-        <button id = "button_movie_search" class="btn btn-info">Go</button>     <!--Movie search button -->
-      </div>
+      <span v-if="res != ''">{{res.Title}}</span>
+      <br>
+      <img v-if="res != ''" :src="res.Poster"></img>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
