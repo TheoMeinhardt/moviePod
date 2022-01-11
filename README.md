@@ -1,3 +1,9 @@
+- [moviePod](#moviepod)
+  - [REST-calls](#rest-calls)
+    - [GET:](#get)
+    - [POST:](#post)
+    - [DELETE:](#delete)
+
 # moviePod
 
 API-documentation:
@@ -15,7 +21,7 @@ http://www.omdbapi.com/
 
 - Überprüfe das Password eines Users: <br />
   `http://url:port/checkpassword HTTP/1.1` <br />
-  `content-type: application/json` <br />
+  `content-type: application/json` <br /><br />
   `{`<br />
   `"username": "username",`<br />
   `"password": "password"`<br />
@@ -24,7 +30,7 @@ http://www.omdbapi.com/
   Gibt bei selben Password `true` und bei unterschiedlichen `false` zurrück.
 - Hinzufügen eines Users:<br />
   `http://url:port/adduser HTTP/1.1` <br />
-  `content-type: application/json` <br />
+  `content-type: application/json` <br /><br />
   `{`<br />
   `"username: "username",`<br />
   `"password": "password",`<br />
@@ -32,7 +38,7 @@ http://www.omdbapi.com/
   `}`<br />
 - Hinzufügen eines Films zu der persönlichen Liste eines Benutzers:<br />
   `http://url:port/addmovietolist HTTP/1.1`<br />
-  `content-type: application/json` <br />
+  `content-type: application/json` <br /><br />
   `{`<br />
   `"username": "username",`<br />
   `"movieTitle": "movieTitle",`<br />
