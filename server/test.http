@@ -1,5 +1,5 @@
 GET http://localhost:3000/getmovie/Indiana+Jones
-##########################################################
+###
 POST http://localhost:3000/adduser HTTP/1.1
 content-type: application/json
 
@@ -8,7 +8,7 @@ content-type: application/json
   "password": "apfel1234",
   "dateOfbirth": "09.11.2004"
 }
-##########################################################
+###
 POST http://localhost:3000/checkpassword HTTP/1.1
 content-type: application/json
 
@@ -16,11 +16,19 @@ content-type: application/json
   "username": "QinX",
   "password": "apfel1234"
 }
-##########################################################
+###
 POST http://localhost:3000/addMovieToList HTTP/1.1
 content-type: application/json
 
 {
   "user": "QinX",
   "movieTitle": "Wonder Woman"
+}
+###
+DELETE http://localhost:3000/deluser HTTP/1.1
+content-type: application/json
+
+{
+  "username": "QinX",
+  "password": "apfel1234"
 }
