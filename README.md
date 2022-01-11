@@ -47,29 +47,29 @@ http://www.omdbapi.com/
   `}`<br />
   Jeder Benutze hat eine persönliche Liste an Filmen. Hiermit kann man einen Film der persönlichen Liste eines Benutzers hinzufügen.`movieTitle` kann auch mit Abständen sein beispielsweise `Wonder Woman`.
 - Hinzufügen einer persönlichen Bewertung für Filme: <br />
-  `POST http://localhost:3000/ratemovie HTTP/1.1`<br />
+  `POST http://url:port/ratemovie HTTP/1.1`<br />
   `content-type: application/json`<br /><br />
 
   `{`<br />
-  `"username": "QinX",`<br />
-  `"movieTitle": "Titanic",`<br />
-  `"rating": 3`<br />
+  `"username": "username",`<br />
+  `"movieTitle": "movie title",`<br />
+  `"rating": rating`<br />
   `}`
 
 ### DELETE:
 
 - Löschen eines Benutzers aus der Datenbank:<br />
-  `DELETE http://localhost:3000/deluser HTTP/1.1`<br />
+  `DELETE http://url:port/deluser HTTP/1.1`<br />
   `content-type: application/json`<br /><br />
   `{`<br />
-  `"username": "QinX",`<br />
-  `"password": "apfel1234"`<br />
+  `"username": "username",`<br />
+  `"password": "password"`<br />
   `}`
 - Löschen eines Filmes aus der persönlichen Liste eines Benutzers:
-  `DELETE http://localhost:3000/deletemoviefrompersonallist HTTP/1.1`<br />
+  `DELETE http://url:port/deletemoviefrompersonallist HTTP/1.1`<br />
   `content-type: application/json`<br /><br />
 
   `{`<br />
-  `"username": "Slowly",`<br />
-  `"movieTitle": "Indiana Jones"`<br />
+  `"username": "username",`<br />
+  `"movieTitle": "movie title"`<br />
   `}`
