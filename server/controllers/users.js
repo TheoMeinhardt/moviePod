@@ -94,10 +94,11 @@ async function delUser(req, res) {
 }
 
 async function getUserId(username) {
-  const text = 'SELECT userid FROM siteuser where username = $1';
+  const text = 'SELECT userid FROM siteuser WHERE username = $1';
   const params = [username];
 
   const { rows } = await pool.query(text, params);
+  console.log(rows);
 
   return rows.length >= 1 ? rows[0].userid : 'user not found';
 }

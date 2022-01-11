@@ -12,12 +12,15 @@ async function addMovieToPersonalList(req, res) {
     const { username, movieTitle } = req.body;
     const userid = await getUserId(username);
 
+    console.log(userid);
     if (isNaN(userid)) {
-      throw new Error('user not found');
+      res.status(400).send('user does not exist');
+      throw new Error('user does not exist');
     }
 
     if (await checkMatchDuplicate(userid, movieTitle)) {
-      throw new Error('Movie already in list');
+      res.status(400).send('movie already in list');
+      throw new Error('movie already in list');
     }
 
     await addMovieToDB(movieTitle);

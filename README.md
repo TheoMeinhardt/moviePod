@@ -16,6 +16,8 @@ http://www.omdbapi.com/
 - Detailierte Informationen über einen Film bekommen:<br />
   `GET http://url:port/getmovie/title`: <br />
   `title` statt Abständen ein + bsp: `Wonder+Woman`
+- Liste der Gespeicherten Filme: <br />
+  `GET http://url:port/getpersonalmovielist/username`
 
 ### POST:
 
@@ -53,4 +55,12 @@ http://www.omdbapi.com/
   `{`<br />
   `"username": "QinX",`<br />
   `"password": "apfel1234"`<br />
-  `}`<br />
+  `}`
+- Löschen eines Filmes aus der persönlichen Liste eines Benutzers:
+  `DELETE http://localhost:3000/deletemoviefrompersonallist HTTP/1.1`<br />
+  `content-type: application/json`<br /><br />
+
+  `{`<br />
+  `"username": "Slowly",`<br />
+  `"movieTitle": "Indiana Jones"`<br />
+  `}`
