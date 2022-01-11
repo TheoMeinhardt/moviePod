@@ -46,6 +46,15 @@ http://www.omdbapi.com/
   `"movieTitle": "movieTitle",`<br />
   `}`<br />
   Jeder Benutze hat eine persönliche Liste an Filmen. Hiermit kann man einen Film der persönlichen Liste eines Benutzers hinzufügen.`movieTitle` kann auch mit Abständen sein beispielsweise `Wonder Woman`.
+- Hinzufügen einer persönlichen Bewertung für Filme: <br />
+  `POST http://localhost:3000/ratemovie HTTP/1.1`<br />
+  `content-type: application/json`<br /><br />
+
+  `{`<br />
+  `"username": "QinX",`<br />
+  `"movieTitle": "Titanic",`<br />
+  `"rating": 3`<br />
+  `}`
 
 ### DELETE:
 

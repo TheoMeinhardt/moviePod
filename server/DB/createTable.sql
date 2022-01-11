@@ -13,9 +13,10 @@ CREATE TABLE IF NOT EXISTS movie
 
 CREATE TABLE IF NOT EXISTS movieList
 (
-    matchID    serial PRIMARY KEY NOT NULL,
-    userID     INT                NOT NULL,
-    movieTitle VARCHAR            NOT NULL,
+    matchID        serial PRIMARY KEY NOT NULL,
+    userID         INT                NOT NULL,
+    movieTitle     VARCHAR            NOT NULL,
+    personalRating INT CHECK ( personalRating >= 0 and personalRating <= 5 ),
     CONSTRAINT fk_user
         FOREIGN KEY (userID)
             REFERENCES siteUser (userID),

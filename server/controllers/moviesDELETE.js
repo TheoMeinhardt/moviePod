@@ -7,11 +7,20 @@ dotenvConfig();
 
 const pool = new Pool();
 
+async function checkMovieInPersonalList(username, movie) {
+  const text = 'SELECT movietitle FROM movielist JOIN siteuser s ON s.userid = movielist.userid WHERE s.username = $1 AND movietitle = $2';
+  const params = [username, movie];
+
+  const { rows } = await pool.query(text, params);
+
+  return rows.length != 0 ? true : false;
+}
+
 async function deleteMovieFromPersonalList(req, res) {
   const { username, movieTitle } = req.body;
 
   try {
-    if (pool.query('select movietitle from movielist join siteuser s on s.userid = movielist.userid where s.username = $1 and movietitle = $2', [username, movieTitle]).length == 0) {
+    if (!checkMovieInPersonalList(username, movieTitle)) {
       res.status(400).send('movie not in list');
       throw new Error('movie not in list');
     }
@@ -28,4 +37,4 @@ async function deleteMovieFromPersonalList(req, res) {
   }
 }
 
-export { deleteMovieFromPersonalList };
+export { deleteMovieFromPersonalList, checkMovieInPersonalList };

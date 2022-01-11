@@ -26,7 +26,7 @@ async function getMovie(req, res) {
 
 async function getPersonalMovieList(req, res) {
   const { username } = req.params;
-  const text = 'SELECT s.username, movietitle FROM movielist JOIN siteuser s ON s.userid = movielist.userid WHERE s.username = $1';
+  const text = 'SELECT s.username, movietitle, personalRating FROM movielist JOIN siteuser s ON s.userid = movielist.userid WHERE s.username = $1';
   const params = [username];
 
   try {
