@@ -145,6 +145,46 @@ body a:hover {
   margin-right: 30px;
 }
 
+.movieResult {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 800px;
+  height: 400px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #fca311ff;
+  border-radius: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movieInfo {
+  margin-left: 1rem;
+}
+
+.movieResultPoster {
+  margin-left: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.movieResultInfoTitle {
+  font-size: 3rem;
+  width: 80%;
+}
+
+.movieResultPosterImage {
+  width: 15rem;
+}
+
+.movieResultInfoYear {
+  width: 15%;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
 .statistics-bubbles {
   display: -ms-grid;
   display: grid;
