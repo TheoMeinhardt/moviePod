@@ -60,8 +60,8 @@ body a:hover {
 
 .hero-banner-heading-container {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -107,7 +107,7 @@ body a:hover {
 
 .card:hover {
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .center-card {
@@ -126,7 +126,7 @@ body a:hover {
   border-radius: 15px;
   border: 1px solid black;
   -webkit-box-shadow: black 3;
-          box-shadow: black 3;
+  box-shadow: black 3;
   width: 400px;
 }
 
@@ -207,8 +207,8 @@ body a:hover {
   font-size: 40px;
   color: #14213dff;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -225,3 +225,15 @@ body a:hover {
   border-radius: 3rem;
 }
 /*# sourceMappingURL=style.css.map */
+
+/*Diewalds Css :)*/
+.appear {
+  transition: all 0.8s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.appear.inview {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.3s;
+}
