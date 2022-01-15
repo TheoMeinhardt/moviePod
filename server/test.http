@@ -1,19 +1,14 @@
-GET http://localhost:3000/getmovie/Wonder+Woman
-###
-GET http://localhost:3000/getPersonalMovieList/QinX
-###
-
-
-
+GET http://localhost:3000/getmovie/Indiana+Jones
+##########################################################
 POST http://localhost:3000/adduser HTTP/1.1
 content-type: application/json
 
 {
-  "username": "Slowly",
+  "username": "QinX",
   "password": "apfel1234",
   "dateOfbirth": "09.11.2004"
 }
-###
+##########################################################
 POST http://localhost:3000/checkpassword HTTP/1.1
 content-type: application/json
 
@@ -21,39 +16,11 @@ content-type: application/json
   "username": "QinX",
   "password": "apfel1234"
 }
-###
+##########################################################
 POST http://localhost:3000/addMovieToList HTTP/1.1
 content-type: application/json
 
 {
-  "username": "QinX",
-  "movieTitle": "Titanic"
-}
-###
-POST http://localhost:3000/ratemovie HTTP/1.1
-content-type: application/json
-
-{
-  "username": "QinX",
-  "movieTitle": "Titanic",
-  "rating": 3
-}
-###
-
-
-
-DELETE http://localhost:3000/deluser HTTP/1.1
-content-type: application/json
-
-{
-  "username": "QinX",
-  "password": "apfel1234"
-}
-###
-DELETE http://localhost:3000/deletemoviefrompersonallist HTTP/1.1
-content-type: application/json
-
-{
-  "username": "Slowly",
-  "movieTitle": "Indiana Jones"
+  "user": "QinX",
+  "movieTitle": "Wonder Woman"
 }

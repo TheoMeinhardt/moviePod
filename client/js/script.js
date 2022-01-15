@@ -1,36 +1,25 @@
-//diewalds js :)
-const appear = document.querySelector(".appear");
-const cb = function (entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("inview");
-    } else {
-      entry.target.classList.remove("inview");
-    }
-  });
-};
-const io = new IntersectionObserver(cb);
-io.observe(appear);
-//end
-
-
+<<<<<<< HEAD
 const { createApp } = Vue;
 
 var moviePod = ({
     data() {
         return{
-            movie: '',
-            searchTitle: '',
+            res: "",  
+            movieSearch: "",  
         };
     },
     methods: {
-        async getMovie(){
-            this.searchTitle.replace(/\s/g, "+");
-			const {data} = await axios.get(`http://localhost:3000/getMovie/${this.searchTitle}`);
-            console.log(data);
-            this.movie = data;
+        async searchMovie(){
+            let searchTitle;
+            if(this.movieSearch.includes(" ")){
+                searchTitle = this.movieSearch.replace(/ /g,"+");
+            }
+            let response = await axios.get(`http://localhost:3000/getmovie/${searchTitle}`);
+            this.res = response.data;
         }
     }
 })
 
 createApp(moviePod).mount('#app');
+=======
+>>>>>>> parent of b4197b6 (Movie Search implemented)

@@ -1,11 +1,8 @@
 import axios from 'axios';
 import log from 'loglevel';
-import Pool from 'pg-pool';
 import { config as dotenvConfig } from 'dotenv';
 
 dotenvConfig();
-
-const pool = new Pool();
 
 function buildURL(movieName) {
   const apiKey = process.env.API_KEY;
@@ -24,18 +21,4 @@ async function getMovie(req, res) {
   }
 }
 
-async function getPersonalMovieList(req, res) {
-  const { username } = req.params;
-  const text = 'SELECT s.username, movietitle, personalRating FROM movielist JOIN siteuser s ON s.userid = movielist.userid WHERE s.username = $1';
-  const params = [username];
-
-  try {
-    const { rows } = await pool.query(text, params);
-    res.status(200).json(rows);
-  } catch (err) {
-    log.error(err);
-    res.status(500).send(err);
-  }
-}
-
-export { getMovie, getPersonalMovieList };
+export { getMovie };

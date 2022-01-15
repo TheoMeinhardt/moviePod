@@ -55,6 +55,7 @@ async function comparePassword(req, res) {
 
   const { rows } = await pool.query(text, params);
   const hashedPassword = rows[0].password;
+  log.error('test');
 
   bcrypt.compare(password, hashedPassword, (err, result) => {
     if (err) {
@@ -65,42 +66,13 @@ async function comparePassword(req, res) {
   });
 }
 
-async function delUser(req, res) {
-  const { username, password } = req.body;
-  const text = 'SELECT password FROM siteuser WHERE username = $1';
-  const params = [username];
-
-  const { rows } = await pool.query(text, params);
-  const hashedPassword = rows[0].password;
-
-  bcrypt.compare(password, hashedPassword, async (err, result) => {
-    if (err) {
-      log.error(err);
-    } else {
-      if (result) {
-        const text = 'DELETE FROM siteuser WHERE username = $1';
-        const params = [username];
-
-        try {
-          await pool.query(text, params);
-          res.status(200).send('OK');
-        } catch (err) {
-          log.error(err);
-          res.status(500).send(err);
-        }
-      }
-    }
-  });
-}
-
 async function getUserId(username) {
-  const text = 'SELECT userid FROM siteuser WHERE username = $1';
+  const text = 'SELECT userid FROM siteuser where username = $1';
   const params = [username];
 
   const { rows } = await pool.query(text, params);
-  console.log(rows);
 
   return rows.length >= 1 ? rows[0].userid : 'user not found';
 }
 
-export { addUser, comparePassword, getUserId, delUser };
+export { addUser, comparePassword, getUserId };
