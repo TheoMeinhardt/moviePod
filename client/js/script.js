@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const { createApp } = Vue;
 
 var moviePod = ({
@@ -21,5 +22,7 @@ var moviePod = ({
 })
 
 createApp(moviePod).mount('#app');
+=======
+>>>>>>> parent of b4197b6 (Movie Search implemented)
 =======
 >>>>>>> parent of b4197b6 (Movie Search implemented)
