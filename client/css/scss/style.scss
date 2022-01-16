@@ -175,10 +175,23 @@ body {
   height: min-content;
 }
 
+
+
+//Account Page
+
 .acc-settings-bubble {
   background-color: $orange-web;
-  width: 80rem;
+  width: 40rem;
   height: 40rem;
-  margin: auto;
+  margin-left: 10rem;
   border-radius: 3rem;
+}
+
+.btn-outline-info{
+  border-color: $oxford-blue;
+  color: $oxford-blue;
+}
+.signup_button:hover{
+  background-color: $oxford-blue;
+  border-color: $oxford-blue;
 }

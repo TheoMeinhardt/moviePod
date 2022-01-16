@@ -219,9 +219,19 @@ body a:hover {
 
 .acc-settings-bubble {
   background-color: #fca311ff;
-  width: 80rem;
+  width: 40rem;
   height: 40rem;
-  margin: auto;
+  margin-left: 10rem;
   border-radius: 3rem;
+}
+
+.btn-outline-info {
+  border-color: #14213dff;
+  color: #14213dff;
+}
+
+.signup_button:hover {
+  background-color: #14213dff;
+  border-color: #14213dff;
 }
 /*# sourceMappingURL=style.css.map */

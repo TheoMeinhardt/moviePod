@@ -81,11 +81,11 @@
           <button @click="getMovie" id = "button_movie_search" class="btn btn-info">Go</button>     <!--Movie search button -->
         </div>
       </div>
-      <div class="movieResult">
+      <div v-show="movie!=''" class="movieResult">
         <div class="movieResultPoster">
           <img class="movieResultPosterImage" :src="movie.Poster">
         </div>
-        <div v-show="movie!=''" class="movieInfo">
+        <div class="movieInfo">
           <div style="display:flex;">
             <div class="movieResultInfoTitle">{{movie.Title}}</div>
             <div class="movieResultInfoYear">{{movie.Year}}</div>
