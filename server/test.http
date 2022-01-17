@@ -35,7 +35,7 @@ content-type: application/json
 
 {
   "username": "QinX",
-  "movieTitle": "Titanic",
+  "movieTitle": "It",
   "rating": 3
 }
 ###

@@ -53,16 +53,24 @@ async function comparePassword(req, res) {
   const text = 'SELECT password FROM siteuser WHERE username = $1';
   const params = [username];
 
-  const { rows } = await pool.query(text, params);
-  const hashedPassword = rows[0].password;
+  try {
+    const { rows } = await pool.query(text, params);
 
-  bcrypt.compare(password, hashedPassword, (err, result) => {
-    if (err) {
-      log.error(err);
-    } else {
-      res.status(200).send(result);
-    }
-  });
+    if (rows.length == 0) res.status(404).send('user not found');
+
+    const hashedPassword = rows[0].password;
+
+    bcrypt.compare(password, hashedPassword, (err, result) => {
+      if (err) {
+        log.error(err);
+      } else {
+        res.status(200).send(result);
+      }
+    });
+  } catch (err) {
+    log.error(err);
+    res.status(400).send(err);
+  }
 }
 
 async function delUser(req, res) {
