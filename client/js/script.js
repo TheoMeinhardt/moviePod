@@ -33,7 +33,7 @@ var moviePod = ({
             console.log('click');
             const res =  await axios.post(`http://localhost:3000/checkpassword`, {
                 username: this.logInUsername,
-                password: this.logInPassword,
+                password: this.logInPassword
             })
             console.log(res);
         },
