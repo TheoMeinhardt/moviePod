@@ -67,7 +67,8 @@
         <div class="login col-5">
           <div class="rendered-form">
             <div class="mt-5">
-                <h1 access="false">Log In<br></h1></div>
+                <h1 access="false">Log In<br></h1>
+            </div>
             <div class="form-group field-username">
                 <label for="username">Username
                     <br>
@@ -79,6 +80,13 @@
                 <input v-model="logInPassword" type="password" class="form-control" name="password" access="false" id="loginPassword">
             </div>
             <button @click="checkLogIn" class="btn btn-outline-info login_button">Log In</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="loginStatus">
+          <div class="loginStatusText">
+            {{loginStatus}}
           </div>
         </div>
       </div>
