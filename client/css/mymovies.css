@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap");
+.navbar {
+  background-color: #fca311ff;
+  border-bottom: 1px solid #14213dff;
+}
+
+.navbar-brand {
+  padding-top: 0px;
+  font-size: 2px;
+  font-weight: 400;
+}
+
+.brand {
+  font-size: 4vw;
+}
+
+/* Navbar active link color */
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .nav-link.active {
+  color: #14213dff;
+}
+
+/* change default bootstrap burger menu button color */
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: #fca311ff;
+}
+
+.nav-link:hover {
+  border-bottom: 1px solid #14213dff;
+}
+
+.site-navbar {
+  height: 20px;
+}
+
+body {
+  background-color: #fca311ff;
+}
+/*# sourceMappingURL=mymovies.css.map */

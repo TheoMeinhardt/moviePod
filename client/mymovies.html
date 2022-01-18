@@ -8,49 +8,56 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- stylesheet -->
-    <link rel="stylesheet" href=".\css\style.css">
     <link rel="stylesheet" href=".\css\mymovies.css">
     <title>moviePod</title>
   </head>
   <body>
-    <header class="site-navbar" role="banner">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a href="#" class="navbar-brand">
-            <img src="http://placehold.it/">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="toggleMobileMenu">
-            <ul class="nav navbar-nav">
-                <li>
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="browse.html">Browse</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="mymovies.html">My Movies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="account.html">Account</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    </header>
-    <div class="card-groupd.flex flex.wrap ">
-      <div class="card d-inline-block m-1" style="width: 18rem;">
-        <div class="card-body" style="justify-content:center; padding:0px">
-          <img class="card-img-top w-100" height = "100" :src="BILDQUELLE">
-          <div class="card-text text-center">
-            <h5 class="card-title" style="font-weight: bold;">MOVIE TITLE</h5>
-            <p class="card-text"><span>RATING</span></p>
-            <p class="card-text"><span>DATE ADDED</span></p>
+    <div class="app">
+      <header class="site-navbar" role="banner">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a href="#" class="navbar-brand">
+              <img src="http://placehold.it/">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="toggleMobileMenu">
+              <ul class="nav navbar-nav">
+                  <li>
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="browse.html">Browse</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="mymovies.html">My Movies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="account.html">Account</a>
+                  </li>
+              </ul>
           </div>
+        </nav>
+      </header>
+      <!-- List movies from personal movie list. -->
+      <div class="d.flex flex.wrap mt-5 ml-5">
+        <div v-for="m in movies" class="card d-inline-block m-1" style="width: 18rem;">
+          <div class="card-body" style="justify-content:center; padding:0px">
+            <img class="card-img-top w-20" height = "250" :src="b.pic" alt="Card image cap">
+            <div class="card-text text-center">
+              <h5 class="card-title" style="font-weight: bold;">{{m.title}}</h5>
+              <p class="card-text"><span>ID: {{b.id}}</span></p>
+              <p class="card-text"><span>Found By: {{b.attributes[0].author}}</span></p>
+              <p class="card-text"><span>Status: {{b.commonwealthStatus}}</span></p>
+            </div>
+          </div>
+          <button @click="delBird()" class="btn btn-outline-warning">Del</button>
         </div>
       </div>
     </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/mymovies.js"></script>
   </body>
 </html>
