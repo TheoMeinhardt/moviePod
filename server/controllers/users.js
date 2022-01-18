@@ -57,16 +57,17 @@ async function comparePassword(req, res) {
     const { rows } = await pool.query(text, params);
 
     if (rows.length == 0) res.status(404).send('user not found');
+    else {
+      const hashedPassword = rows[0].password;
 
-    const hashedPassword = rows[0].password;
-
-    bcrypt.compare(password, hashedPassword, (err, result) => {
-      if (err) {
-        log.error(err);
-      } else {
-        res.status(200).send(result);
-      }
-    });
+      bcrypt.compare(password, hashedPassword, (err, result) => {
+        if (err) {
+          log.error(err);
+        } else {
+          res.status(200).send(result);
+        }
+      });
+    }
   } catch (err) {
     log.error(err);
     res.status(400).send(err);
