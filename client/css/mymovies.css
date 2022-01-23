@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap");
+body {
+  background-color: white;
+}
+
+.navbar {
+  background-color: #fca311ff;
+  border-bottom: 1px solid #14213dff;
+}
+
+.navbar-brand {
+  padding-top: 0px;
+  font-size: 2px;
+  font-weight: 400;
+}
+
+.brand {
+  font-size: 4vw;
+}
+
+/* Navbar active link color */
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .nav-link.active {
+  color: #14213dff;
+}
+
+/* change default bootstrap burger menu button color */
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: #fca311ff;
+}
+
+.nav-link:hover {
+  border-bottom: 1px solid #14213dff;
+}
+
+.site-navbar {
+  height: 20px;
+}
+
+.notLoggedIn {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #fca311ff;
+  width: 15rem;
+  display: block;
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.notLoggedInText {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  margin: auto;
+}
+
+.badge {
+  margin-top: 2px;
+  padding: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  background-color: #14213dff;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+.card-image {
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.removeButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*# sourceMappingURL=mymovies.css.map */
