@@ -43,17 +43,15 @@
       <div class="d.flex flex.wrap mt-5 ml-5">
         <div v-for="(item, index) in movieObjectList" class="card d-inline-block m-1" style="width: 18rem;">
           <div class="card-body" style="justify-content:center; padding:0px">
-            <div class="text-align: center;">
-              <img class="card-image mx-auto" :src="item.Poster" alt="Poster">
-            </div>
             <div class="card-text text-light text-center">
               <h5 class="card-title" style="font-weight: bold;">{{item.Title}}</h5>
               <p class="card-text"><span></span></p>
               <p class="card-text"><span></span></p>
               <p class="card-text"><span></span></p>
             </div>
+            <img class="card-image mx-auto" :src="item.Poster" alt="Poster">
           </div>
-          <button class="removeButton btn btn-outline-warning">Remove</button>
+          <button @click="removeFromList(item.Title)" class="removeButton btn btn-outline-warning">Remove</button>
         </div>
       </div>
       <!-- Not logged In tip -->

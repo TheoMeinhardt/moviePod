@@ -21,7 +21,7 @@ async function checkMovieInPersonalList(username, movie) {
 
 async function deleteMovieFromPersonalList(req, res) {
   const { username, movieTitle } = req.body;
-
+  console.log(req.body);
   try {
     if (!checkMovieInPersonalList(username, movieTitle)) {
       res.status(400).send('movie not in list');
@@ -32,10 +32,9 @@ async function deleteMovieFromPersonalList(req, res) {
     const params = [username, movieTitle];
 
     await pool.query(text, params);
-
-    const userid = await getUserId(username);
-    const { data } = await axios.get(buildURL(movieTitle));
-    await addWatchMinutes(userid, `-${data.Runtime}`);
+    // const userid = await getUserId(username);
+    // const { data } = await axios.get(buildURL(movieTitle));
+    // await addWatchMinutes(userid, `-${data.Runtime}`);
 
     res.status(200).send('OK');
   } catch (err) {

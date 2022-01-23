@@ -32,14 +32,6 @@ var mymovies = {
       };
       console.log(this.movieObjectList);
       console.log(this.movieObjectList[0].Title)
-      // this.movies.forEach(element => {
-      //   const { data } = await axios.get(
-      //     `http://localhost:3000/getMovie/${element.movietitle}`
-      //   );
-      //   console.log(data);
-      //   this.movie = data;
-      //   this.movieTitle = data.Title
-      //   element.movietitle //--> damit film getten für die Ausgabe.
     } 
     catch {
       if(this.loggedInUser == ''){
@@ -49,9 +41,27 @@ var mymovies = {
         console.error('MovieGet fehlgeschlagen');
       }
     }
+    const res = await axios.delete(`http://localhost:3000/deletemoviefrompersonallist`, {
+        username: "QinX",
+        movieTitle: "Chocolat",
+      });
   },
   methods: {
-    async getPersonalMovieList() {},
+    async removeFromList(title) {
+      console.log('yes')
+      console.log(this.loggedInUser)
+      console.log(title)
+      const res = await axios.delete(`http://localhost:3000/deletemoviefrompersonallist`, {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        data: {
+          username: this.loggedInUser,
+          movieTitle: title
+        }
+      });
+      console.log(res);
+    },
   },
 };
 
