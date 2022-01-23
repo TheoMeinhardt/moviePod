@@ -1,6 +1,8 @@
 import Pool from 'pg-pool';
 import log from 'loglevel';
+import axios from 'axios';
 import { getUserId } from './users.js';
+import { buildURL } from './moviesGET.js';
 import { checkMovieInPersonalList } from './moviesDELETE.js';
 import { config as dotenvConfig } from 'dotenv';
 
@@ -8,12 +10,22 @@ dotenvConfig();
 
 const pool = new Pool();
 
+async function addWatchMinutes(userid, minutesString) {
+  try {
+    const text = 'UPDATE siteuser SET minuteswatched = minuteswatched + $1 WHERE userid = $2;';
+    const params = [Number(minutesString.split(' ')[0]), userid];
+
+    await pool.query(text, params);
+  } catch (err) {
+    log.error(err);
+  }
+}
+
 async function addMovieToPersonalList(req, res) {
   try {
     const { username, movieTitle } = req.body;
     const userid = await getUserId(username);
 
-    console.log(userid);
     if (isNaN(userid)) {
       res.status(400).send('user does not exist');
       throw new Error('user does not exist');
@@ -29,9 +41,12 @@ async function addMovieToPersonalList(req, res) {
     const text = 'INSERT INTO movielist (matchid, userid, movietitle) VALUES (default, $1, $2)';
     const params = [userid, movieTitle];
 
-    await pool.query(text, params);
+    const { rows } = await pool.query(text, params);
 
-    res.status(200).send();
+    const { data } = await axios.get(buildURL(movieTitle));
+    await addWatchMinutes(userid, data.Runtime);
+
+    res.status(200).send('OK');
   } catch (err) {
     log.error(err);
     res.status(400).send(err);
@@ -87,4 +102,4 @@ async function rateMovie(req, res) {
   }
 }
 
-export { addMovieToPersonalList, rateMovie };
+export { addMovieToPersonalList, rateMovie, addWatchMinutes };

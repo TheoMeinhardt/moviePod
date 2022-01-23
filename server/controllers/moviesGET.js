@@ -30,12 +30,34 @@ async function getPersonalMovieList(req, res) {
   const params = [username];
 
   try {
+    let detailedMovies = [];
     const { rows } = await pool.query(text, params);
-    res.status(200).json(rows);
+
+    for await (let movie of rows) {
+      const { data } = await axios.get(buildURL(movie.movietitle));
+      let newMovie = movie;
+      newMovie.details = data;
+      detailedMovies.push(newMovie);
+    }
+
+    res.status(200).json(detailedMovies);
   } catch (err) {
     log.error(err);
     res.status(500).send(err);
   }
 }
 
-export { getMovie, getPersonalMovieList };
+async function getUserData(req, res) {
+  try {
+    const text = 'SELECT username, dateofbirth, minuteswatched FROM siteuser WHERE username = $1';
+    const params = [req.params.username];
+
+    const { rows } = await pool.query(text, params);
+    res.status(200).send(rows);
+  } catch (err) {
+    log.error(err);
+    res.status(500).send(err);
+  }
+}
+
+export { getMovie, getPersonalMovieList, buildURL, getUserData };

@@ -1,6 +1,9 @@
 import axios from 'axios';
 import log from 'loglevel';
 import Pool from 'pg-pool';
+import { getUserId } from './users.js';
+import { buildURL } from './moviesGET.js';
+import { addWatchMinutes } from './moviesPOST.js';
 import { config as dotenvConfig } from 'dotenv';
 
 dotenvConfig();
@@ -29,6 +32,10 @@ async function deleteMovieFromPersonalList(req, res) {
     const params = [username, movieTitle];
 
     await pool.query(text, params);
+
+    const userid = await getUserId(username);
+    const { data } = await axios.get(buildURL(movieTitle));
+    await addWatchMinutes(userid, `-${data.Runtime}`);
 
     res.status(200).send('OK');
   } catch (err) {
