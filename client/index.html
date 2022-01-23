@@ -75,17 +75,17 @@
       <div class="movie-search-box mx-auto">
         <div class="movie-search-desc-container mx-auto">
           <p class="movie-search-desc my-0">Search for a movie</p>
-        </div>
+        </div>     
         <input v-model="searchTitle" class="movie-search-input" type="text" placeholder="  search...">
         <div class="movie-search-button mt-3 mx-auto">
           <button @click="getMovie" id = "button_movie_search" class="btn btn-info">Go</button>     <!--Movie search button -->
         </div>
       </div>
-      <div v-show="movie!=''" class="movieResult">
+      <div v-cloak v-if="movie!=''" class="movieResult">
         <div class="movieResultPoster">
           <img class="movieResultPosterImage" :src="movie.Poster">
         </div>
-        <div class="movieInfo">
+        <div v-cloak class="movieInfo">
           <div style="display:flex;">
             <div class="movieResultInfoTitle">{{movie.Title}}</div>
             <div class="movieResultInfoYear">{{movie.Year}}</div>
@@ -97,6 +97,8 @@
           <br>
           <div class="movieResultInfoActors">Starring: {{movie.Actors}}</div>
           {{movie.Plot}}
+          <br><br><br><br>
+          <button @click="addToWatchList" class="addToWatchList btn btn-info">Add to watchlist</button>
         </div>
       </div>
     </div>

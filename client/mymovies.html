@@ -12,7 +12,7 @@
     <title>moviePod</title>
   </head>
   <body>
-    <div class="app">
+    <div id="app">
       <header class="site-navbar" role="banner">
         <nav class="navbar navbar-expand-lg navbar-light">
           <a href="#" class="navbar-brand">
@@ -41,18 +41,25 @@
       </header>
       <!-- List movies from personal movie list. -->
       <div class="d.flex flex.wrap mt-5 ml-5">
-        <div v-for="m in movies" class="card d-inline-block m-1" style="width: 18rem;">
+        <div v-for="(item, index) in movieObjectList" class="card d-inline-block m-1" style="width: 18rem;">
           <div class="card-body" style="justify-content:center; padding:0px">
-            <img class="card-img-top w-20" height = "250" :src="b.pic" alt="Card image cap">
-            <div class="card-text text-center">
-              <h5 class="card-title" style="font-weight: bold;">{{m.title}}</h5>
-              <p class="card-text"><span>ID: {{b.id}}</span></p>
-              <p class="card-text"><span>Found By: {{b.attributes[0].author}}</span></p>
-              <p class="card-text"><span>Status: {{b.commonwealthStatus}}</span></p>
+            <div class="text-align: center;">
+              <img class="card-image mx-auto" :src="item.Poster" alt="Poster">
+            </div>
+            <div class="card-text text-light text-center">
+              <h5 class="card-title" style="font-weight: bold;">{{item.Title}}</h5>
+              <p class="card-text"><span></span></p>
+              <p class="card-text"><span></span></p>
+              <p class="card-text"><span></span></p>
             </div>
           </div>
-          <button @click="delBird()" class="btn btn-outline-warning">Del</button>
+          <button class="removeButton btn btn-outline-warning">Remove</button>
         </div>
+      </div>
+      <!-- Not logged In tip -->
+      <div v-if="loggedInUser == ''"class="notLoggedIn">
+        <p class="notLoggedInText">You are not logged in</p>
+        <a href="account.html" class="badge badge-info mx-auto">Log In</a>
       </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>

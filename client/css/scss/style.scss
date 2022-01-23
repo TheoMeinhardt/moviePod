@@ -1,5 +1,7 @@
 @import '_vars.scss';
 
+[v-cloak] {display: none};
+
 body {
   font-family: $font;
   background-color: $white;

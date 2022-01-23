@@ -1,4 +1,7 @@
 @import '_vars.scss';
+body{
+  background-color: white;
+}
 .navbar {
     background-color: $orange-web;
     border-bottom: 1px solid $oxford-blue;
@@ -28,8 +31,42 @@
   .site-navbar {
     height: 20px;
   }
-  
 
-body{
-    background-color: $orange-web;
+.notLoggedIn{
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: $orange-web;
+  width: 15rem;
+  display:block;
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.notLoggedInText{
+  max-width: max-content;
+  margin:auto;
+}
+.badge{
+  margin-top: 2px;
+  padding: 10px;
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.card{
+  background-color: $oxford-blue;
+  border-radius: 1rem;
+  width: 20rem;
+}
+.card-image{
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.removeButton{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

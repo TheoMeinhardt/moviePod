@@ -13,13 +13,16 @@ var moviePod = {
       loginStatus: 'Not logged in',
       response: true,
       invalidLogin: false,
-      invalidPassword: false
+      invalidPassword: false,
+      cookieValue: '',
+      movieTitle: '',
+      movieAdded: false
 
     };
   },
   created() {
     try {
-      let cookieValue = document.cookie
+      this.cookieValue = document.cookie
         .split('; ')
         .find((row) => row.startsWith('loggedInUser='))
         .split('=')[1];
@@ -30,6 +33,7 @@ var moviePod = {
       );
     }
   },
+
   methods: {
     async getMovie() {
       this.searchTitle.replace(/\s/g, '+');
@@ -38,7 +42,9 @@ var moviePod = {
       );
       console.log(data);
       this.movie = data;
+      this.movieTitle = data.Title
     },
+
     async addUser() {
       //Add User to Database
       axios
@@ -55,6 +61,8 @@ var moviePod = {
       this.signUpPassword = '';
       this.signUpDateOfBirth = '';
     },
+
+
     async checkLogIn() {
       // Send request with login information and check if its correct
       try {
@@ -89,6 +97,24 @@ var moviePod = {
         this.invalidPassword = false;
       }
     },
+
+
+    async addToWatchList() {
+      console.log(this.movieTitle)
+      try{
+        const res = await axios.post(`http://localhost:3000/addMovieToList`, {
+          username: this.cookieValue,
+          movieTitle: this.movieTitle
+        })
+        console.log(res);
+        if(res.status == 200){
+          movieAdded = true;
+        }
+      }
+      catch (err){
+        console.log(err);
+      }
+    }
   },
 };
 

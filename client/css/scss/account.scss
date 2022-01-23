@@ -7,7 +7,7 @@
 //login Status bottom left
 .loginStatus{
     display: flex;
-    padding: 3%;
+    padding: 40px;
     position: absolute;
     float: right;
     bottom: 1rem;
@@ -20,7 +20,8 @@
 .loginStatusText{
     margin-left: auto;
     margin-right: auto;
-    margin-top: -1.35rem;
+    margin-top: -1.5rem;
+    height: 30px;
     text-align: center;
 }
 
