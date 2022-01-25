@@ -27,7 +27,8 @@
     "helmet": "^4.6.0",
     "loglevel": "^1.8.0",
     "morgan": "^1.10.0",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "vue-star-rating": "^2.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

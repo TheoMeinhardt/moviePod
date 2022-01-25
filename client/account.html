@@ -18,25 +18,19 @@
     <div id="app">
       <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <a href="#" class="navbar-brand">
-              <img src="http://placehold.it/">
-          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
               <span><i class="fas fa-bars"></i></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="toggleMobileMenu">
               <ul class="nav navbar-nav">
                   <li>
-                    <a class="nav-link active" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="browse.html">Browse</a>
+                    <a class="nav-link" href="index.html">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="mymovies.html">My Movies</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="account.html">Account</a>
+                    <a class="nav-link active" href="account.html">Account</a>
                   </li>
               </ul>
           </div>
@@ -86,7 +80,6 @@
               <button @click="checkLogIn" class="btn btn-outline-info login_button">Log In</button>
               <p v-cloak v-if="loginSuccess" class="loginSuccess">Login Successful</p>
             </div>
-
           </div>
         </div>
       </div>

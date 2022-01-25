@@ -82,12 +82,15 @@ body {
   width: min-content;
   height: min-content;
   transition: all 0.2s ease-in-out;
+  text-align:center;
 }
+
 .card:hover {
   transform: scale(1.1);
 }
 .center-card {
   height: 150.933px;
+  text-align:center;
 }
 
 // movie searchbox
@@ -122,7 +125,7 @@ body {
 .movieResult {
   display: flex;
   width: 800px;
-  height: 400px;
+  height: 500px;
   margin-top: 2rem;
   margin-bottom: 2rem;
   background-color: $orange-web;
@@ -135,7 +138,7 @@ body {
 }
 .movieResultPoster {
   margin-left: 2rem;
-  margin-top: auto;
+  margin-top: 3rem;
   margin-bottom: auto;
 }
 .movieResultInfoTitle {
@@ -143,7 +146,7 @@ body {
   width: 80%;
 }
 .movieResultPosterImage {
-  width: 15rem;
+  width: 16rem;
 }
 .movieResultInfoYear {
   width: 15%;
@@ -151,7 +154,10 @@ body {
   font-size: 1.5rem;
   text-align: right;
 }
-
+.rating{
+  width: 8%;
+  margin-left: 4px;
+}
 
 
 .statistics-bubbles {
@@ -185,7 +191,7 @@ body {
   background-color: $orange-web;
   width: 40rem;
   height: 40rem;
-  margin-left: 10rem;
+  margin: 10rem;
   border-radius: 3rem;
 }
 
@@ -197,3 +203,47 @@ body {
   background-color: $oxford-blue;
   border-color: $oxford-blue;
 }
+.custom-text {
+  font-weight: bold;
+  font-size: 1.9em;
+  border: 1px solid #cfcfcf;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  color: #999;
+  background: #fff;
+}
+
+.loginHinweis{
+  color:red;
+}
+.movieAddedHinweis{
+  color: $oxford-blue;
+}
+.loginStatus{
+  display: flex;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: absolute;
+  float: right;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: $orange-web;
+  width: 10rem;
+  height: max-content;
+  border-radius: 1rem;
+}
+.loginStatusText{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: min-content;
+  text-align: center;
+}
+.logoutbutton{
+  width: 100px;
+}
+[v-cloak] {display: none};

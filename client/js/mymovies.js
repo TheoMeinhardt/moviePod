@@ -25,13 +25,13 @@ var mymovies = {
       );
       console.log(res.data)
       this.movies = res.data;
-      for (const iterator of this.movies) {
-        const res = await axios.get(`http://localhost:3000/getMovie/${iterator.movietitle}`);
-        console.log(res);
-        this.movieObjectList.push(res.data)
-      };
-      console.log(this.movieObjectList);
-      console.log(this.movieObjectList[0].Title)
+      // for (const iterator of this.movies) {
+      //   const res = await axios.get(`http://localhost:3000/getMovie/${iterator.movietitle}`);
+      //   console.log(res);
+      //   this.movieObjectList.push(res.data)
+      // };
+      // console.log(this.movieObjectList);
+      // console.log(this.movieObjectList[0].Title)
     } 
     catch {
       if(this.loggedInUser == ''){
@@ -41,10 +41,6 @@ var mymovies = {
         console.error('MovieGet fehlgeschlagen');
       }
     }
-    const res = await axios.delete(`http://localhost:3000/deletemoviefrompersonallist`, {
-        username: "QinX",
-        movieTitle: "Chocolat",
-      });
   },
   methods: {
     async removeFromList(title) {
@@ -61,6 +57,7 @@ var mymovies = {
         }
       });
       console.log(res);
+      location.reload();
     },
   },
 };

@@ -17,9 +17,6 @@
     <div id="app">
       <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <a href="index.html" class="navbar-brand">
-              <img src="http://placehold.it/">
-          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
               <span><i class="fas fa-bars"></i></span>
           </button>
@@ -27,9 +24,6 @@
               <ul class="nav navbar-nav">
                   <li>
                     <a class="nav-link active" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="browse.html">Browse</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="mymovies.html">My Movies</a>
@@ -49,16 +43,16 @@
           <div class="card">
             <a href="statistics.html">
               <div class="card-body">
-                <h5 class="card-title">Statistics</h5>
-                <p class="card-text">Insights of you movie watching habits</p>
+                <h5 class="card-title">Library</h5>
+                <p class="card-text">Store your favourite movies in one place</p>
               </div>
             </a>         
           </div>
           <div class="card center-card">
-            <a href="reviews.html" class="">
+            <a href="mymovies.html" class="">
               <div class="card-body">
                 <h5 class="card-title">Rate Movies</h5>
-                <p class="card-text">Review and read others opinions</p>
+                <p class="card-text">Rate the movies you watch</p>
               </div>
             </a>
           </div>
@@ -76,7 +70,7 @@
         <div class="movie-search-desc-container mx-auto">
           <p class="movie-search-desc my-0">Search for a movie</p>
         </div>     
-        <input v-model="searchTitle" class="movie-search-input" type="text" placeholder="  search...">
+        <input v-model="searchTitle" class="movie-search-input" type="text" placeholder="  search..." required>
         <div class="movie-search-button mt-3 mx-auto">
           <button @click="getMovie" id = "button_movie_search" class="btn btn-info">Go</button>     <!--Movie search button -->
         </div>
@@ -97,8 +91,24 @@
           <br>
           <div class="movieResultInfoActors">Starring: {{movie.Actors}}</div>
           {{movie.Plot}}
-          <br><br><br><br>
-          <button @click="addToWatchList" class="addToWatchList btn btn-info">Add to watchlist</button>
+          <br>
+          <div class="userRating">
+            <label>Your personal rating: </label>
+            <input v-model="userRating" class="rating" type="number">
+            <label>/5</label><br>
+            <button @click="addToWatchList" class="addToWatchList btn btn-info">Add to watchlist</button>
+            <br><br>
+            <p v-if="notLoggedIn"class="loginHinweis">Du musst dich zuerst einloggen</p>
+            <p v-if="movieAdded"class="movieAddedHinweis">Film hinzugefügt!</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div v-cloak class="loginStatus">
+          <div class="loginStatusText">
+            {{loginStatus}}
+            <!-- <button v-if="notLoggedIn==true" class="badge badge-danger logoutbutton" @click="deleteAllCookies">Log Out</button> -->
+          </div>
         </div>
       </div>
     </div>

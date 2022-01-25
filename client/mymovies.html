@@ -15,9 +15,6 @@
     <div id="app">
       <header class="site-navbar" role="banner">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <a href="#" class="navbar-brand">
-              <img src="http://placehold.it/">
-          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,9 +22,6 @@
               <ul class="nav navbar-nav">
                   <li>
                     <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="browse.html">Browse</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href="mymovies.html">My Movies</a>
@@ -40,22 +34,24 @@
         </nav>
       </header>
       <!-- List movies from personal movie list. -->
-      <div class="d.flex flex.wrap mt-5 ml-5">
-        <div v-for="(item, index) in movieObjectList" class="card d-inline-block m-1" style="width: 18rem;">
+      <div v-cloak class="d.flex flex.wrap mt-5 ml-5">
+        <div v-for="(item, index) in movies" class="card d-inline-block m-1" style="width: 18rem;">
           <div class="card-body" style="justify-content:center; padding:0px">
             <div class="card-text text-light text-center">
-              <h5 class="card-title" style="font-weight: bold;">{{item.Title}}</h5>
+              <h5 class="card-title" style="font-weight: bold;">{{item.details.Title}}</h5>
               <p class="card-text"><span></span></p>
               <p class="card-text"><span></span></p>
               <p class="card-text"><span></span></p>
             </div>
-            <img class="card-image mx-auto" :src="item.Poster" alt="Poster">
+            <img class="card-image mx-auto" :src="item.details.Poster" alt="Poster">
+            <p class="text-light ratingText">You rated this movie: {{item.personalrating}}/5</p>
           </div>
-          <button @click="removeFromList(item.Title)" class="removeButton btn btn-outline-warning">Remove</button>
+          <button @click="removeFromList(item.details.Title)" class="removeButton btn btn-outline-warning">Remove</button>
         </div>
       </div>
       <!-- Not logged In tip -->
-      <div v-if="loggedInUser == ''"class="notLoggedIn">
+      <div v-cloak v-if="loggedInUser == ''"class="notLoggedIn">
+        <h1 class="oops">Oops!</h1>
         <p class="notLoggedInText">You are not logged in</p>
         <a href="account.html" class="badge badge-info mx-auto">Log In</a>
       </div>
